@@ -5,6 +5,7 @@ let resposta = '';
 let palavraTentativas;
 let chute = 0;
 let numeroLimite;
+//Funcionou
 
 
 function exibirTextoNaTela(tag, texto){
