@@ -4,7 +4,7 @@ let numSecreto = 0;
 let resposta = '';
 let palavraTentativas;
 let chute = 0;
-let numeroLimite;
+let numeroLimite = 100;
 //Funcionou
 
 
@@ -15,7 +15,8 @@ function exibirTextoNaTela(tag, texto){
 
 function exibirMensagemInicial(){
     exibirTextoNaTela('h1', 'Jogo do número secreto');
-    exibirTextoNaTela('p', 'Escolha um número de 1 a 10');
+    let textoNoP1 = `Escolha um número entre 1 e ${numeroLimite}`;
+    exibirTextoNaTela('p', textoNoP1 );
 }
 
 function enableButton(buttonId){
