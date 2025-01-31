@@ -5,6 +5,7 @@ let resposta = '';
 let palavraTentativas;
 let chute = 0;
 let numeroLimite = 30;
+let tentativaAnterior;
 //Funcionou
 
 
@@ -48,12 +49,12 @@ function reiniciarJogo(){
     exibirMensagemInicial()
     limparCampo();
     enableButton('chutarButton');
-    //document.getElementById('reiniciarButton').setAttribute('disabled',true).
+    //document.getElementById('reiniciarButton').setAttribute('disabled',true);
 }
 
 function limparCampo(){
     chute = document.querySelector('input');
-    chute.value = ''
+    chute.valueOf = ''
 }
 
 disableButton('reiniciarButton');
@@ -68,7 +69,9 @@ exibirMensagemInicial()
 
 function verificarChute() {
     chuteValor = document.getElementById('chute').value;
-    
+    if (chuteValor == tentativaAnterior){
+        return;
+    }
     if (chuteValor == numSecreto) {
         palavraTentativas = contador > 1 ? 'tentativas' : 'tentativa';
         exibirTextoNaTela('h1', 'Você acertou!');
@@ -76,7 +79,7 @@ function verificarChute() {
         exibirTextoNaTela('p', mensagemTentativas);
         disableButton('chutarButton');
         enableButton('reiniciarButton');
-        //document.getElementById('reiniciarNutton').removeAttribute('disabled');
+        //document.getElementById('reiniciarButton').removeAttribute('disabled');
     } else {
         resposta = chuteValor>numSecreto ? 'maior' : 'menor';
         let mensagemErro = `Número errado! ${chuteValor} é ${resposta} que o número secreto`;
@@ -84,5 +87,6 @@ function verificarChute() {
     }
     contador++;
     limparCampo();
+    tentativaAnterior = chuteValor;
 }
 
