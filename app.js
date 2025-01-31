@@ -4,7 +4,7 @@ let numSecreto = 0;
 let resposta = '';
 let palavraTentativas;
 let chute = 0;
-let numeroLimite = 50;
+let numeroLimite = 30;
 //Funcionou
 
 
